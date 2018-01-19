@@ -46,3 +46,16 @@ body {
 .order-total {
   text-align: right;
 }
+
+.empty-container {
+  margin: 0 auto;
+  width: 75%;
+  font: Helvetica;
+
+  .empty-cart {
+    font-size: 72px;
+    background: -webkit-linear-gradient(#ab4443, rgb(153, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
