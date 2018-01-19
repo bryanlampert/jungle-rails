@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @cart_total = 0 %>
+          <% @order_total = 0 %>
           <% @items.each do |item| %>
             <%= render 'item', item: item %>
           <% end %>
@@ -30,7 +30,7 @@
               TOTAL:
             </th>
             <th>
-              <%= humanized_money_with_symbol @cart_total %>
+              <%= humanized_money_with_symbol @order_total %>
             </th>
           </tr>
         </tfoot>

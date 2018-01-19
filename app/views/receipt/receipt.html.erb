@@ -1,0 +1,22 @@
+<h1> Thank you for your order! <h2>
+<hr>
+<h3> Your order number is <%= @order_info.id %> </h3>
+<h4> Please look over your order carefully: </h4>
+<% @order = Order.find(@order_info.id) %>
+<% @items = @order.line_items.includes(:product) %>
+<% @order_total = 0 %>
+
+<% @items.each do |item| %>
+  <% item_total = item.item_price * item.quantity %>
+  <% @order_total += item_total %>
+  <h5><%= item.name %></h5>
+  <p><%= item.description %></p>
+  <p><%= item.quantity %> x <%= humanized_money_with_symbol item.item_price %> </p>
+  <br>
+  <h5>Item Total: <%= humanized_money_with_symbol item_total %></h5>
+  <br><br><br>
+<% end %>
+
+<h3> Your final total is $<%= @order_total %>
+<h3> Come back to the JUNGLE soon! </h3>
+

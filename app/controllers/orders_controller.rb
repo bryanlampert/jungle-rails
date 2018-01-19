@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
+      Receipt.order_receipt(order).deliver_later
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
@@ -33,7 +34,7 @@ class OrdersController < ApplicationController
     Stripe::Charge.create(
       source:      params[:stripeToken],
       amount:      cart_total, # in cents
-      description: "Khurram Virani's Jungle Order",
+      description: "#{current_user.first_name} #{current_user.last_name}'s Jungle Order",
       currency:    'cad'
     )
   end
