@@ -23,6 +23,25 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <hr>
+        <section id="comments">
+          <h4 style="color: #ab4443">Comments:</h4>
+          <% @product.reviews.each do |review| %>
+            <% @user = User.find_by(id: review.user_id) %>
+              <dl>
+                <dt>
+                  <%= @user.first_name %> <%= @user.last_name %>
+                </dt>
+                <dt>
+                  Rating: <span style="color: #ab4443"><%= review.rating %></span>
+                </dt>
+                <dt></dt>
+                <dd>
+                  <%= review.description %>
+                </dd>
+              </dl>
+          <% end %>
+        </section>
       </div>
     </div>
 
