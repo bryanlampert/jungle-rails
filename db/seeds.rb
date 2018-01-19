@@ -132,5 +132,52 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+user1 = User.create!({
+  first_name: "Jozy",
+  last_name: "Altidore",
+  email: "jozy@tfc.ca",
+  password: "password"
+})
+
+user2 = User.create!({
+  first_name: "Michael",
+  last_name: "Bradley",
+  email: "mb4@tfc.ca",
+  password: "password"
+})
+
+prod1 = Product.first
+prod2 = Product.last
+prod3 = Product.find_by(id:10)
+
+prod2.reviews.create!({
+  user_id: 1,
+  description: "Love it!",
+  rating: 5
+})
+
+prod2.reviews.create!({
+  user_id: 2,
+  description: "Looks great in the living room",
+  rating: 4
+})
+
+prod1.reviews.create!({
+  user_id: 1,
+  description: "Fit was a bit tight..",
+  rating: 2
+})
+
+prod3.reviews.create!({
+  user_id: 1,
+  description: "Can't believe I ever slept on a 'normal' bed for so long!",
+  rating: 5
+})
+
+prod3.reviews.create!({
+  user_id: 1,
+  description: "What is wrong with all of you who use this...",
+  rating: 1
+})
 
 puts "DONE!"
