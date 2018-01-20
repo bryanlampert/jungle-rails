@@ -5,6 +5,21 @@
       <h4><%= product.name %></h4>
     <% end %>
   </header>
+  <div class="overall-rating">
+    RATING:
+    <% if product.reviews.blank? %>
+        No reviews yet!
+    <% else %>
+      <% @overall_rating = 0 %>
+      <% @amount = 0 %>
+      <% product.reviews.each do |review| %>
+        <% @overall_rating += review.rating.to_f %>
+        <% @amount += 1 %>
+      <% end %>
+      <% @overall_rating = @overall_rating / @amount %>
+      <%= @overall_rating.to_f.round(2) %>
+    <% end %>
+  </div>
   <p class="description">
     <%= product.description %>
   </p>
@@ -17,6 +32,7 @@
     <%= link_to product, class: 'btn btn-default pull-right' do %>
       Details &raquo;
     <% end %>
+    
   </footer>
 
   <% if product.quantity == 0 %>

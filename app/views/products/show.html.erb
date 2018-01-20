@@ -1,7 +1,26 @@
 <section class="products-show">
 
   <header class="page-header">
-    <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
+    <h1><%= link_to @product.category.name, @product.category %> 
+        &raquo; 
+        <%= @product.name %>
+    </h1>
+    <h3>
+      Average rating
+      &raquo;
+      <% if @product.reviews.blank? %>
+        No reviews yet!
+      <% else %>
+        <% @overall_rating = 0 %>
+        <% @amount = 0 %>
+        <% @product.reviews.each do |review| %>
+          <% @overall_rating += review.rating.to_f %>
+          <% @amount += 1 %>
+        <% end %>
+        <% @overall_rating = @overall_rating / @amount %>
+        <%= @overall_rating.to_f.round(2) %>
+      <% end %>
+    </h3>
   </header>
 
   <article class="product-detail">
