@@ -2,6 +2,26 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Features
+- Admin authentication
+- Admin controls (add products and categories)
+- Order products
+- User registration and authentication
+- Check out using Stripe
+- Order confirmations and emails
+
+## Screenshots
+Jungle Home Page/Product Listing:
+!["Screenshot of Home Page"]()
+
+Individual Product Page:
+!["Screenshot of Individual Product Page"]()
+
+Cart:
+!["Screenshot of Cart"]()
+
+Order Confirmation:
+!["Screenshot of Order Confirmation"]()
 
 ## Setup
 
