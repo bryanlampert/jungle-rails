@@ -21,12 +21,35 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd><%= humanized_money_with_symbol @product.price %></dd>
         </dl>
         <hr>
-        <section id="comments">
-          <h4 style="color: #ab4443">Comments:</h4>
-          <% @product.reviews.each do |review| %>
+        <h4 class="review-title">Liked the product? Hated it? Somewhere in between??</h4>
+        <h4 class="review-title">Add your opinion with the form below and let others know what you have to say about <%= @product.name %>!</h4>
+        <%= form_for [@product, @review] do |f| %>
+          <% if f.object.errors.any? %>
+            <div>
+              <strong>Uh oh!... you have the following errors:</strong>
+              <ul>
+                <% f.object.errors.full_messages.each do |e| %>
+                  <li><%= e %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          
+          <%= f.text_area :description, placeholder: "Speak your mind about: #{@product.name} " %>
+          <div class="review-rating">
+            <%= f.label :rating %>
+            <%= f.select :rating, (1..5) %>
+          </div>
+          <%= f.hidden_field :product_id, :value => @product.id %>
+          <%= f.submit 'Create Review', class: 'btn btn-primary submit_review' %>
+        <% end %>
+        <hr>
+        <section id="reviews">
+          <h4 style="color: #ab4443">Reviews:</h4>
+          <% @product.reviews.reverse_each do |review| %>
             <% @user = User.find_by(id: review.user_id) %>
               <dl>
                 <dt>
@@ -34,6 +57,11 @@
                 </dt>
                 <dt>
                   Rating: <span style="color: #ab4443"><%= review.rating %></span>
+                  <% if current_user.present? %>
+                    <% if review.user_id == current_user.id %>
+                      <%= link_to fa_icon('trash-o'), product_review_path(product_id: @product.id, id: review.id), method: :delete, data: { confirm: "Are you sure? \n Your opinion matters!" }, title: "Delete review" %>
+                    <% end %>
+                  <% end %>
                 </dt>
                 <dt></dt>
                 <dd>

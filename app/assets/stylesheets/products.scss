@@ -7,12 +7,18 @@ main section.categories-show {
     flex-wrap:       wrap;
     justify-content: space-around;
 
+
+    .product-title {
+      color: #ab4443;
+    }
+
     .product {
       // flex:      1;
       max-width: 260px;
       // so that footer within can be positioned absolutely
       position:  relative;
 
+      background: #fff;
       border:        1px solid #ccc;
       border-radius: 5px;
       padding:       15px;
@@ -73,10 +79,11 @@ main section.categories-show {
 
       &:hover {
 
-        border-color: #999;
+        border-color: #ab4443;
 
         footer {
           opacity: 1.0;
+          background: #ab4443;
           
           .disabled {
             opacity: 0.3;

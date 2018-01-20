@@ -9,6 +9,47 @@
 // Global
 body {
   padding-top: 70px;
+  background: #29ab87;
+}
+
+.navbar {
+  background: #000;
+  
+  .navbar-default .navbar-nav > li > a  {
+    color: #fff;
+  }
+
+  .navbar-brand > img {
+    max-height: 100px;
+    margin-top: -28px;
+    position: absolute;
+    top: 10;
+    left: 0.5em;
+
+  }
+}
+
+.review-title {
+  color: #ab4443;
+}
+
+#review_description {
+  width: 80%;
+  height: 100px;
+  resize: none;
+}
+
+.review-rating {
+  font-size: 20px;
+}
+
+#review_rating {
+  height: 30px;
+  margin: 5px 5px 10px 5px;
+}
+
+.fa a {
+  background: #ab4443;
 }
 
 .login-form {

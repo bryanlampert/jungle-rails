@@ -146,38 +146,76 @@ user2 = User.create!({
   password: "password"
 })
 
+user3 = User.create!({
+  first_name: "Victor",
+  last_name: "Vazquez",
+  email: "vv@tfc.ca",
+  password: "password"
+})
+
+user4 = User.create!({
+  first_name: "Seba",
+  last_name: "Giovinco",
+  email: "10@tfc.ca",
+  password: "password"
+})
+
 prod1 = Product.first
 prod2 = Product.last
 prod3 = Product.find_by(id:10)
 
-prod2.reviews.create!({
-  user_id: 1,
-  description: "Love it!",
-  rating: 5
-})
+Product.all.each do |product|
+  
+  rand(0..4).times do
+    product.reviews.create!({
+      user_id: rand(1..4),
+      description: Faker::Hacker.say_something_smart,
+      rating: rand(1..5)
+    })
+  end
 
-prod2.reviews.create!({
-  user_id: 2,
-  description: "Looks great in the living room",
-  rating: 4
-})
+  # product.reviews.create!({
+  #   user_id: rand(1..4),
+  #   description: Faker::Hipster.paragraph,
+  #   rating: rand(1..5)
+  # })
 
-prod1.reviews.create!({
-  user_id: 1,
-  description: "Fit was a bit tight..",
-  rating: 2
-})
+  # product.reviews.create!({
+  #   user_id: rand(1..4),
+  #   description: Faker::Company.bs,
+  #   rating: rand(1..5)
+  # })
 
-prod3.reviews.create!({
-  user_id: 1,
-  description: "Can't believe I ever slept on a 'normal' bed for so long!",
-  rating: 5
-})
+end
 
-prod3.reviews.create!({
-  user_id: 1,
-  description: "What is wrong with all of you who use this...",
-  rating: 1
-})
+# prod2.reviews.create!({
+#   user_id: 1,
+#   description: "Love it!",
+#   rating: 5
+# })
+
+# prod2.reviews.create!({
+#   user_id: 2,
+#   description: "Looks great in the living room",
+#   rating: 4
+# })
+
+# prod1.reviews.create!({
+#   user_id: 1,
+#   description: "Fit was a bit tight..",
+#   rating: 2
+# })
+
+# prod3.reviews.create!({
+#   user_id: 1,
+#   description: "Can't believe I ever slept on a 'normal' bed for so long!",
+#   rating: 5
+# })
+
+# prod3.reviews.create!({
+#   user_id: 2,
+#   description: "What is wrong with all of you who use this...",
+#   rating: 1
+# })
 
 puts "DONE!"
