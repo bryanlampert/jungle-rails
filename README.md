@@ -12,16 +12,16 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Screenshots
 Jungle Home Page/Product Listing:
-!["Screenshot of Home Page"]()
+!["Screenshot of Home Page"](https://github.com/bryanlampert/jungle-rails/blob/master/docs/jungle.png)
 
 Individual Product Page:
-!["Screenshot of Individual Product Page"]()
+!["Screenshot of Individual Product Page"](https://github.com/bryanlampert/jungle-rails/blob/master/docs/product.png)
 
 Cart:
-!["Screenshot of Cart"]()
+!["Screenshot of Cart"](https://github.com/bryanlampert/jungle-rails/blob/master/docs/cart.png)
 
 Order Confirmation:
-!["Screenshot of Order Confirmation"]()
+!["Screenshot of Order Confirmation"](https://github.com/bryanlampert/jungle-rails/blob/master/docs/order.png)
 
 ## Setup
 
