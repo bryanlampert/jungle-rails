@@ -56,6 +56,8 @@ group :test do
   gem 'database_cleaner', '~> 1.5'
   gem 'faker'
   gem 'simplecov'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :development do
