@@ -48,6 +48,14 @@ group :development, :test do
   gem 'letter_opener'
   gem 'letter_opener_web'
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.0', require: false
+  gem 'database_cleaner', '~> 1.5'
+  gem 'faker'
+  gem 'simplecov'
 end
 
 group :development do
