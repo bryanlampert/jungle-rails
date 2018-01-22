@@ -60,20 +60,3 @@ RSpec.describe Product, type: :model do
   end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# let(:category) { Category.create!(name: 'Board Games') }
-    # let(:product) { category.products.new(name: 'Dominion', price: 34.99, quantity: 21) }
