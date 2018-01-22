@@ -37,6 +37,8 @@ gem 'stripe'
 gem 'faker'
 gem 'pry-rails'
 
+gem 'cloudinary'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
