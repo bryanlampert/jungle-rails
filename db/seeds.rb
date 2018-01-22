@@ -336,28 +336,32 @@ when "production"
     first_name: "Jozy",
     last_name: "Altidore",
     email: "jozy@tfc.ca",
-    password: "password"
+    password: "password",
+    password_confirmation: "password"
   })
 
   user2 = User.create!({
     first_name: "Michael",
     last_name: "Bradley",
     email: "mb4@tfc.ca",
-    password: "password"
+    password: "password",
+    password_confirmation: "password"
   })
 
   user3 = User.create!({
     first_name: "Victor",
     last_name: "Vazquez",
     email: "vv@tfc.ca",
-    password: "password"
+    password: "password",
+    password_confirmation: "password"
   })
 
   user4 = User.create!({
     first_name: "Seba",
     last_name: "Giovinco",
     email: "10@tfc.ca",
-    password: "password"
+    password: "password",
+    password_confirmation: "password"
   })
 
   prod1 = Product.first
